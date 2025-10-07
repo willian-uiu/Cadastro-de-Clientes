@@ -19,13 +19,13 @@
                 <form class="row g-3 needs-validation" novalidate>
                     <div class="col-md-6">
                       <label for="validationCustom01" class="form-label">Nome</label>
-                      <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+                      <input type="text" class="form-control" id="validationCustom01" value="Usuario" required>
                       <div class="valid-feedback"></div>
                     </div>
 
                     <div class="col-md-6">
                       <label for="validationCustom02" class="form-label">Sobrenome</label>
-                      <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                      <input type="text" class="form-control" id="validationCustom02" value="Um" required>
                       <div class="valid-feedback"></div>
                     </div>
                     
@@ -33,38 +33,56 @@
                       <label for="cepValidation" class="form-label">Código Postal</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">CEP</span>
-                        <input type="text" class="form-control" id="cepValidation" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" class="form-control" id="cepValidation" aria-describedby="inputGroupPrepend" value="58707420" required>
                         <div class="invalid-feedback">
                           Por favor, digite o CEP.
                         </div>
                       </div>
                     </div>
 
-                    <div class="col-md-8">
-                      <label for="validationCustom03" class="form-label">Cidade</label>
+                    <div class="col-md-10">
+                      <label for="validationCustom03" class="form-label">Endereço</label>
                       <input type="text" class="form-control" id="validationCustom03" required>
+                      <div class="invalid-feedback">
+                        Rua não encontrada.
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-2">
+                      <label for="validationCustom04" class="form-label">Número</label>
+                      <input type="text" class="form-control" id="validationCustom04" required>
+                      <div class="invalid-feedback">
+                        caso não haja número, favor colocar "SN"
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label for="validationCustom05" class="form-label">Bairro</label>
+                      <input type="text" class="form-control" id="validationCustom05" required>
+                      <div class="invalid-feedback">
+                        Bairro não encontrado.
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                      <label for="validationCustom06" class="form-label">Cidade</label>
+                      <input type="text" class="form-control" id="validationCustom06" required>
                       <div class="invalid-feedback">
                         CEP inválido.
                       </div>
                     </div>
 
-                    <div class="col-md-3">
-                      <label for="validationCustom04" class="form-label">Estado</label>
-                      <select class="form-select" id="validationCustom04" required>
-                        <option selected disabled value="">Choose...</option>
-                        <option>...</option>
-                      </select>
+                    <div class="col-md-2">
+                      <label for="validationCustom07" class="form-label">Estado</label>
+                      <input type="text" class="form-control" id="validationCustom07" required>
                       <div class="invalid-feedback">
-                        Please select a valid state.
+                        Estado não encontrado.
                       </div>
                     </div>
-                    <div class="col-md-3">
-                      <label for="validationCustom05" class="form-label">Zip</label>
-                      <input type="text" class="form-control" id="validationCustom05" required>
-                      <div class="invalid-feedback">
-                        Please provide a valid zip.
-                      </div>
-                    </div>
+
+
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
@@ -76,6 +94,8 @@
                         </div>
                       </div>
                     </div>
+
+
                     <div class="col-12">
                       <button class="btn btn-primary" type="submit">Submit form</button>
                     </div>

@@ -18,8 +18,8 @@
       <div class="card-body">
         <form class="row g-3 needs-validation" novalidate>
           <div class="col-md-6">
-            <label for="validationCustom01" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="validationCustom01" value="Usuario" required>
+            <label for="NameValidation" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="NameValidation" required>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">
               Por favor, digite um nome!
@@ -27,8 +27,8 @@
           </div>
 
           <div class="col-md-6">
-            <label for="validationCustom02" class="form-label">Sobrenome</label>
-            <input type="text" class="form-control" id="validationCustom02" value="Um" required>
+            <label for="lastnameValidation" class="form-label">Sobrenome</label>
+            <input type="text" class="form-control" id="lastnameValidation" required>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">
               Por favor, digite um sobrenome!
@@ -40,7 +40,7 @@
             <div class="input-group has-validation">
               <span class="input-group-text" id="inputGroupPrepend">CEP</span>
               <input type="text" class="form-control" id="cepValidation" aria-describedby="inputGroupPrepend"
-                value="66055210" required>
+                onblur="buscaCEP()" required>
               <div class="invalid-feedback">
                 Por favor, digite o CEP.
               </div>

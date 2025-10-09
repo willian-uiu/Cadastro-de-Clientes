@@ -17,11 +17,11 @@
     <div class="card shadow p-3 mb-5 rounded">
       <div class="card-body">
 
-        <form onsubmit="save(); return false;" class="row g-3 needs-validation" id="formulario" novalidate>
+        <form onsubmit="save(); return false;" class="row g-3 needs-validation" id="formulario" >
           
           <div class="col-md-6">
             <label for="NameValidation" class="form-label">Nome</label>
-            <input type="text" class="form-control" id="NameValidation" required>
+            <input type="text" class="form-control" id="NameValidation"  required>
             <div class="valid-feedback"></div>
             <div class="invalid-feedback">
               Por favor, digite um nome!
@@ -43,10 +43,8 @@
               <span class="input-group-text" id="inputGroupPrepend">CEP</span>
               <input type="text" class="form-control cep" id="cepValidation" aria-describedby="inputGroupPrepend"
                 onblur="buscaCEP()" required>
-              <div class="invalid-feedback">
-                Por favor, digite o CEP.
-              </div>
             </div>
+            <div class="" id="error"></div>
           </div>
 
           <div class="col-md-10">

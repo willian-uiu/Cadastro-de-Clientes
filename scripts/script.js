@@ -35,7 +35,10 @@ function buscaCEP() {
         document.getElementById("ufValidation").value = response.uf;
         document.getElementById("numberValidation").disabled = false;
     }
-    )
+    ).fail( () => {
+        document.getElementById("error").innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">CEP inválido!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`
+    })
 }
 
 

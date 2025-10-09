@@ -31,3 +31,79 @@ function buscaCEP() {
     }
     )
 }
+
+
+// Array de Clientes
+var clientes = []
+
+//OnLoad
+loadClientes();
+
+function loadClientes() {
+    for (let cliente of clientes) {
+        addNewRow(cliente);
+    }
+}
+
+function addNewRow(cliente) {
+    var table = document.getElementById("tabela");
+
+    var newRow = table.insertRow();
+    
+    var idNode = document.createTextNode(cliente.id);
+    var nomeNode = document.createTextNode(`${cliente.nome} ${cliente.sobrenome}`);
+    var cepNode = document.createTextNode(cliente.CEPcliente);
+    var logradouroNode = document.createTextNode(cliente.logradouro);
+    var bairroNode = document.createTextNode(cliente.bairro);
+    var cidadeNode = document.createTextNode(cliente.cidade);
+    var estadoNode = document.createTextNode(cliente.estado);
+
+    newRow.insertCell().appendChild(idNode);
+    // Nome do aluno
+    newRow.insertCell().appendChild(nomeNode);
+
+    // Logradouro do cliente
+    var cell1 = newRow.insertCell(); 
+    cell1.className="d-none d-md-table-cell";
+    cell1.appendChild(logradouroNode);
+
+    // CEP do cliente
+    var cell2 = newRow.insertCell();
+    cell2.className="d-none d-md-table-cell";
+    cell2.appendChild(cepNode);
+
+    // Bairro do cliente
+    var cell3 = newRow.insertCell();
+    cell3.className="d-none d-md-table-cell";
+    cell3.appendChild(bairroNode);
+
+    // Cidade do cliente
+    var cell4 = newRow.insertCell();
+    cell4.className="d-none d-md-table-cell";    
+    cell4.appendChild(cidadeNode);
+
+    var cell5 = newRow.insertCell();
+    cell5.className="d-none d-md-table-cell";    
+    cell5.appendChild(estadoNode);
+
+}
+
+
+function save() {
+    var cliente = {
+        id: clientes.length + 1,
+        nome: document.getElementById("NameValidation").value,
+        sobrenome: document.getElementById("lastnameValidation").value,
+        CEPcliente: document.getElementById("cepValidation").value,
+        logradouro: document.getElementById("addressValidation").value,
+        numero: document.getElementById("numberValidation").value,
+        bairro: document.getElementById("brotherHoodValidation").value,
+        cidade: document.getElementById("cityValidation").value,
+        estado: document.getElementById("ufValidation").value
+    }
+
+    addNewRow(cliente);
+    clientes.push(cliente);
+
+    document.getElementById("formulario").reset();
+}

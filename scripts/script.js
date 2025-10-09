@@ -1,3 +1,8 @@
+// Mascara do CEP
+$(document).ready(function(){
+  $('.cep').mask('00000-000');
+});
+
 // CÓDIGO QUE VALIDA SE OS CAMPOS ESTÃO PREENCHIDOS
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
@@ -108,3 +113,4 @@ function save() {
 
     document.getElementById("formulario").reset();
 }
+

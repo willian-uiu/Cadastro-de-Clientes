@@ -41,7 +41,7 @@
             <label for="cepValidation" class="form-label">Código Postal</label>
             <div class="input-group has-validation">
               <span class="input-group-text" id="inputGroupPrepend">CEP</span>
-              <input type="text" class="form-control" id="cepValidation" aria-describedby="inputGroupPrepend"
+              <input type="text" class="form-control cep" id="cepValidation" aria-describedby="inputGroupPrepend"
                 onblur="buscaCEP()" required>
               <div class="invalid-feedback">
                 Por favor, digite o CEP.
@@ -121,6 +121,7 @@
     crossorigin="anonymous"></script>
   
   <script src="scripts/jquery-3.7.1.min.js"></script>
+  <script src="scripts/jquery.mask.min.js"></script>
 
   <script src="scripts/script.js"></script>
   

@@ -28,6 +28,7 @@ function buscaCEP() {
         document.getElementById("brotherHoodValidation").value = response.bairro;
         document.getElementById("cityValidation").value = response.localidade;
         document.getElementById("ufValidation").value = response.uf;
+        document.getElementById("numberValidation").disabled = false;
     }
     )
 }
@@ -53,7 +54,7 @@ function addNewRow(cliente) {
     var idNode = document.createTextNode(cliente.id);
     var nomeNode = document.createTextNode(`${cliente.nome} ${cliente.sobrenome}`);
     var cepNode = document.createTextNode(cliente.CEPcliente);
-    var logradouroNode = document.createTextNode(cliente.logradouro);
+    var logradouroNode = document.createTextNode(`${cliente.logradouro}, N: ${cliente.numero}`);
     var bairroNode = document.createTextNode(cliente.bairro);
     var cidadeNode = document.createTextNode(cliente.cidade);
     var estadoNode = document.createTextNode(cliente.estado);

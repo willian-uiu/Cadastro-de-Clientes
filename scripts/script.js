@@ -1,6 +1,6 @@
 // Mascara do CEP
-$(document).ready(function(){
-  $('.cep').mask('00000-000');
+$(document).ready(function () {
+    $('.cep').mask('00000-000');
 });
 
 // CÓDIGO QUE VALIDA SE OS CAMPOS ESTÃO PREENCHIDOS
@@ -29,13 +29,24 @@ $(document).ready(function(){
 function buscaCEP() {
     let cepDoc = document.getElementById("cepValidation").value;
     $.getJSON(`https://viacep.com.br/ws/${cepDoc}/json`, (response) => {
-        document.getElementById("addressValidation").value = response.logradouro;
-        document.getElementById("brotherHoodValidation").value = response.bairro;
-        document.getElementById("cityValidation").value = response.localidade;
-        document.getElementById("ufValidation").value = response.uf;
-        document.getElementById("numberValidation").disabled = false;
+        if (response.erro == "true") {
+            document.getElementById("error").innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">CEP inválido!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`
+            document.getElementById("addressValidation").value = null;
+            document.getElementById("brotherHoodValidation").value = null;
+            document.getElementById("cityValidation").value = null;
+            document.getElementById("ufValidation").value = null;
+            document.getElementById("numberValidation").disabled = true;
+        } else {
+            document.getElementById("addressValidation").value = response.logradouro;
+            document.getElementById("brotherHoodValidation").value = response.bairro;
+            document.getElementById("cityValidation").value = response.localidade;
+            document.getElementById("ufValidation").value = response.uf;
+            document.getElementById("numberValidation").disabled = false;
+        }
+
     }
-    ).fail( () => {
+    ).fail(() => {
         document.getElementById("error").innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">CEP inválido!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>`
     })
@@ -58,7 +69,7 @@ function addNewRow(cliente) {
     var table = document.getElementById("tabela");
 
     var newRow = table.insertRow();
-    
+
     var idNode = document.createTextNode(cliente.id);
     var nomeNode = document.createTextNode(`${cliente.nome} ${cliente.sobrenome}`);
     var cepNode = document.createTextNode(cliente.CEPcliente);
@@ -72,33 +83,40 @@ function addNewRow(cliente) {
     newRow.insertCell().appendChild(nomeNode);
 
     // Logradouro do cliente
-    var cell1 = newRow.insertCell(); 
-    cell1.className="d-none d-md-table-cell";
+    var cell1 = newRow.insertCell();
+    cell1.className = "d-none d-md-table-cell";
     cell1.appendChild(logradouroNode);
 
     // CEP do cliente
     var cell2 = newRow.insertCell();
-    cell2.className="d-none d-md-table-cell";
+    cell2.className = "d-none d-md-table-cell";
     cell2.appendChild(cepNode);
 
     // Bairro do cliente
     var cell3 = newRow.insertCell();
-    cell3.className="d-none d-md-table-cell";
+    cell3.className = "d-none d-md-table-cell";
     cell3.appendChild(bairroNode);
 
     // Cidade do cliente
     var cell4 = newRow.insertCell();
-    cell4.className="d-none d-md-table-cell";    
+    cell4.className = "d-none d-md-table-cell";
     cell4.appendChild(cidadeNode);
 
     var cell5 = newRow.insertCell();
-    cell5.className="d-none d-md-table-cell";    
+    cell5.className = "d-none d-md-table-cell";
     cell5.appendChild(estadoNode);
 
 }
 
 
 function save() {
+    if (document.getElementById("addressValidation").value === "") {
+        document.getElementById("error2").innerHTML = `<div class="alert alert-danger alert-dismissible fade show" role="alert">Preencha um CEP válido!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`
+        document.getElementById("cepValidation").value = "";
+        return;
+    }
+
     var cliente = {
         id: clientes.length + 1,
         nome: document.getElementById("NameValidation").value,
